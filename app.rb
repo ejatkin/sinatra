@@ -14,7 +14,13 @@ get '/joke' do
   "this is a joke!"
 end
 
-get '/cat' do
-  @name_generator = ["Amigo", "Oscar", "Viking"].sample
+get '/random-cat' do
+  @name = ["Amigo", "Oscar", "Viking"].sample
+  erb(:index)
+end
+
+get '/named-cat' do
+  p params
+  @name = params[:name]
   erb(:index)
 end
